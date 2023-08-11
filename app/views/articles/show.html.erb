@@ -1,0 +1,37 @@
+
+<% benchmark "Process data files" do %>
+
+<%= [1, 2, 3, 4, 5].inspect %>
+<p>
+  <b>Title:</b>
+  <%= @article.title %>
+</p>
+
+
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+<% end %>
+
+
+
+<% @greeting = capture do %>
+  <p>Welcome! The date and time is <%= Time.now %></p>
+<% end %>
+
+<p>This is a special page.</p>
+

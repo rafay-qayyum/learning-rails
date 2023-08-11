@@ -1,0 +1,15 @@
+<p> Sign in</p>
+
+<%= flash[:notice] %>
+
+<%= form_with url: login_index_path do |form|%>
+ <div>
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+</div>
+<div>
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+</div>
+<%= form.submit %>
+<%end%>
